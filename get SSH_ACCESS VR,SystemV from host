@@ -1,0 +1,3 @@
+
+# login to the host
+ssh -i .ssh/id_rsa.cloud root@vrIP -p 3922
