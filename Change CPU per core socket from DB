@@ -1,0 +1,13 @@
+### Change CPU per core socket from DB
+
+1. Shutdown the VM 
+2. Delete the 'platform' row for this VM ID in user_vm_details i.e (delete from user_vm_details where id = XXXX;) 
+>>3. Create a cpu.corespersocket entry for this VM ID in user_vm_details table using the below MySQL query.
+
+Query:
+mysql> insert into user_vm_details (vm_id,name,value,display) values (<vmid>,"cpu.corespersocket",<cps>,1);
+Note: Replace <vmid> with the id of the VM and <cps> with the desired core per socket value.
+
+4. Boot the VM from CS. 
+5. The 'platform' row is rebuilt from XS. 
+6. Cores will be whatever you set it to.
